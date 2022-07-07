@@ -17,10 +17,23 @@ repositories {
 }
 
 dependencies {
+    implementation(platform("com.blazebit:blaze-persistence-bom:1.6.6"))
+    testImplementation(platform("org.testcontainers:testcontainers-bom:1.17.3"))
+
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+    implementation(kotlin("reflect"))
+    implementation(kotlin("stdlib-jdk8"))
+
+    implementation("com.blazebit:blaze-persistence-core-api")
+    implementation("com.blazebit:blaze-persistence-core-impl")
+    implementation("com.blazebit:blaze-persistence-integration-hibernate-5.6")
+
+    implementation("org.postgresql:postgresql:42.4.0")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.testcontainers:testcontainers")
+    testImplementation("org.testcontainers:postgresql")
 }
 
 tasks.withType<KotlinCompile> {
